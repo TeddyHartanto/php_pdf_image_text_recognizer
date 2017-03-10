@@ -1,0 +1,15 @@
+{
+    "name": "teddy/php_pdf_image_text_recognizer",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Teddy Hartanto",
+            "email": "hartantoteddy@yahoo.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0.1"
+    },
+    "require-dev": {}
+}
