@@ -7,6 +7,8 @@
  * Time: 1:51 PM
  */
 
+require __DIR__ . '/vendor/autoload.php';
+
 $pdf_dir = 'pdfs/';
 //$dir_items = array_diff(scandir($pdf_dir), ['.', '..']);
 //
@@ -17,7 +19,9 @@ $pdf_dir = 'pdfs/';
 //    hq_pdf_to_jpeg($input, 0, $output);
 //}
 
-extract_jpeg('jpgs/test.jpg', 'cropped_jpgs/test_code_number.jpg', 206, 51, 250, 187);
+//extract_jpeg('jpgs/test.jpg', 'cropped_jpgs/test_code_number.jpg', 206, 51, 250, 187);
+
+echo recognize_text_from_jpeg('cropped_jpgs/test_code_number.jpg') . "\n";
 
 // This code is to show: the image in a webpage
 //$imagick = new Imagick();
@@ -65,4 +69,11 @@ function extract_jpeg($input, $output, $width, $height, $x, $y) {
     $imagick->readImage($input);
     $imagick->cropImage($width, $height, $x, $y);
     $imagick->writeImage($output);
+}
+
+// TODO: Might need to train
+function recognize_text_from_jpeg($input) {
+    $tess = new TesseractOCR($input);
+    $result = $tess->run();
+    return $result;
 }
