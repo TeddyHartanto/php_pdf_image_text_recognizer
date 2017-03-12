@@ -1,2 +1,2 @@
-# php_pdf_image_text_recognizer
-Simple recognition of images and texts on a PDF file
+# php_pdf_text_recognizer
+Simple recognition of texts on a PDF file
